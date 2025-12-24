@@ -308,37 +308,37 @@ class DemoViewModel: ObservableObject {
     // MARK: - Callbacks Setup
 
     private func setupCallbacks() {
-        sdk?.onConnected = { [weak self] in
+        sdk?.onConnectedHandler = { [weak self] in
             DispatchQueue.main.async {
                 self?.handleConnected()
             }
         }
 
-        sdk?.onMessage = { [weak self] message in
+        sdk?.onMessageHandler = { [weak self] message in
             DispatchQueue.main.async {
                 self?.handleMessage(message)
             }
         }
 
-        sdk?.onAudioReceived = { [weak self] audioData in
+        sdk?.onAudioReceivedHandler = { [weak self] audioData in
             DispatchQueue.main.async {
                 self?.handleAudioReceived(audioData)
             }
         }
 
-        sdk?.onAudioSent = { [weak self] audioData in
+        sdk?.onAudioSentHandler = { [weak self] audioData in
             DispatchQueue.main.async {
                 self?.handleAudioSent(audioData)
             }
         }
 
-        sdk?.onError = { [weak self] error in
+        sdk?.onErrorHandler = { [weak self] error in
             DispatchQueue.main.async {
                 self?.handleError(error)
             }
         }
 
-        sdk?.onDisconnected = { [weak self] reason in
+        sdk?.onDisconnectedHandler = { [weak self] reason in
             DispatchQueue.main.async {
                 self?.handleDisconnected(reason)
             }

@@ -88,16 +88,16 @@ let sdk = VoiceStreamSDK.initialize(config: config)
 ### 3. Set Up Callbacks
 
 ```swift
-sdk.onConnected = {
+sdk.onConnectedHandler = {
     print("Connected!")
     sdk.startAudioStreaming()
 }
 
-sdk.onAudioReceived = { audioData in
+sdk.onAudioReceivedHandler = { audioData in
     print("Received \(audioData.count) bytes")
 }
 
-sdk.onError = { error in
+sdk.onErrorHandler = { error in
     print("Error: \(error)")
 }
 ```
@@ -269,8 +269,8 @@ var onDisconnected: ((String) -> Void)?
 sdk.setCallback(object: self)
 
 // Closure-based
-sdk.onConnected = { print("Connected") }
-sdk.onError = { error in print("Error: \(error)") }
+sdk.onConnectedHandler = { print("Connected") }
+sdk.onErrorHandler = { error in print("Error: \(error)") }
 ```
 
 #### Connection Management
@@ -435,7 +435,7 @@ enum VoiceStreamError: Error {
 
 **Example:**
 ```swift
-sdk.onError = { error in
+sdk.onErrorHandler = { error in
     switch error {
     case .audioPermissionDenied(let msg):
         showPermissionAlert()

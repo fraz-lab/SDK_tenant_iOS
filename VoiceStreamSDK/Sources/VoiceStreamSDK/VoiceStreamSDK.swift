@@ -26,12 +26,12 @@ public class VoiceStreamSDK {
     private weak var callback: VoiceStreamCallback?
 
     // Closure-based callbacks (alternative to protocol)
-    public var onConnected: (() -> Void)?
-    public var onMessage: ((String) -> Void)?
-    public var onAudioReceived: ((Data) -> Void)?
-    public var onAudioSent: ((Data) -> Void)?
-    public var onError: ((VoiceStreamError) -> Void)?
-    public var onDisconnected: ((String) -> Void)?
+    public var onConnectedHandler: (() -> Void)?
+    public var onMessageHandler: ((String) -> Void)?
+    public var onAudioReceivedHandler: ((Data) -> Void)?
+    public var onAudioSentHandler: ((Data) -> Void)?
+    public var onErrorHandler: ((VoiceStreamError) -> Void)?
+    public var onDisconnectedHandler: ((String) -> Void)?
 
     // MARK: - Initialization
 
@@ -181,12 +181,12 @@ public class VoiceStreamSDK {
         audioPlaybackManager.cleanup()
 
         callback = nil
-        onConnected = nil
-        onMessage = nil
-        onAudioReceived = nil
-        onAudioSent = nil
-        onError = nil
-        onDisconnected = nil
+        onConnectedHandler = nil
+        onMessageHandler = nil
+        onAudioReceivedHandler = nil
+        onAudioSentHandler = nil
+        onErrorHandler = nil
+        onDisconnectedHandler = nil
     }
 
     // MARK: - Private Methods
@@ -210,7 +210,7 @@ public class VoiceStreamSDK {
     private func handleError(_ error: VoiceStreamError) {
         DispatchQueue.main.async { [weak self] in
             self?.callback?.onError(error: error)
-            self?.onError?(error)
+            self?.onErrorHandler?(error)
         }
     }
 
@@ -231,7 +231,7 @@ extension VoiceStreamSDK: VoiceStreamCallback {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.callback?.onConnected()
-            self.onConnected?()
+            self.onConnectedHandler?()
         }
     }
 
@@ -241,7 +241,7 @@ extension VoiceStreamSDK: VoiceStreamCallback {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.callback?.onMessage(message: message)
-            self.onMessage?(message)
+            self.onMessageHandler?(message)
         }
     }
 
@@ -254,7 +254,7 @@ extension VoiceStreamSDK: VoiceStreamCallback {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.callback?.onAudioReceived(audioData: audioData)
-            self.onAudioReceived?(audioData)
+            self.onAudioReceivedHandler?(audioData)
         }
     }
 
@@ -263,7 +263,7 @@ extension VoiceStreamSDK: VoiceStreamCallback {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.callback?.onAudioSent(audioData: audioData)
-            self.onAudioSent?(audioData)
+            self.onAudioSentHandler?(audioData)
         }
     }
 
@@ -273,7 +273,7 @@ extension VoiceStreamSDK: VoiceStreamCallback {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.callback?.onError(error: error)
-            self.onError?(error)
+            self.onErrorHandler?(error)
         }
     }
 
@@ -286,7 +286,7 @@ extension VoiceStreamSDK: VoiceStreamCallback {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.callback?.onDisconnected(reason: reason)
-            self.onDisconnected?(reason)
+            self.onDisconnectedHandler?(reason)
         }
     }
 }
