@@ -109,6 +109,17 @@ internal class AudioCaptureManager {
                 throw NSError(domain: "AudioCaptureManager", code: -2, userInfo: [NSLocalizedDescriptionKey: "Failed to get input format"])
             }
 
+            // Check if input format is valid (simulator may not have microphone)
+            if inputFormat.sampleRate == 0 {
+                throw NSError(
+                    domain: "AudioCaptureManager",
+                    code: -4,
+                    userInfo: [
+                        NSLocalizedDescriptionKey: "No audio input device available. This may occur on simulator. Please test on a real device or enable simulator microphone in I/O settings."
+                    ]
+                )
+            }
+
             // Create desired format (16kHz, mono, 16-bit PCM)
             guard let desiredFormat = AVAudioFormat(
                 commonFormat: .pcmFormatInt16,
