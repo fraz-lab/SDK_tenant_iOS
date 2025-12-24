@@ -12,27 +12,36 @@ A complete iOS SDK for real-time voice streaming, including:
 
 ## Quick Start on Mac
 
-### Step 1: Open the Project
+### Step 1: Open the Workspace (RECOMMENDED - Works Out of the Box!)
 
-You have two options:
-
-#### Option A: Open SDK Package (Recommended for development)
+The easiest way is to open the workspace that includes both the SDK and Demo App:
 
 ```bash
-cd SDK_tenant_iOS/VoiceStreamSDK
-open Package.swift
+cd SDK_tenant_iOS
+open VoiceStreamDemo.xcworkspace
 ```
 
-This opens the SDK in Xcode for development and testing.
+✅ **This is the recommended approach** - everything is pre-configured and ready to build!
 
-#### Option B: Open Demo App (Recommended for testing)
+**Alternative Options:**
+
+#### Option A: Open Demo App Project Only
 
 ```bash
 cd SDK_tenant_iOS/DemoApp
 open DemoApp.xcodeproj
 ```
 
-This opens the demo application.
+The SDK is already linked as a local package reference at `../VoiceStreamSDK`.
+
+#### Option B: Open SDK Package (for SDK development)
+
+```bash
+cd SDK_tenant_iOS/VoiceStreamSDK
+open Package.swift
+```
+
+This opens just the SDK for development and testing.
 
 ### Step 2: Build the SDK
 

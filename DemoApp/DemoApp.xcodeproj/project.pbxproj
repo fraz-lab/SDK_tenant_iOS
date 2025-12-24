@@ -10,6 +10,7 @@
 		AA0000010000000000000001 /* DemoAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000020000000000000001 /* DemoAppApp.swift */; };
 		AA0000030000000000000001 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0000040000000000000001 /* ContentView.swift */; };
 		AA0000050000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA0000060000000000000001 /* Assets.xcassets */; };
+		AA0000170000000000000001 /* VoiceStreamSDK in Frameworks */ = {isa = PBXBuildFile; productRef = AA0000180000000000000001 /* VoiceStreamSDK */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +19,7 @@
 		AA0000040000000000000001 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AA0000060000000000000001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA0000080000000000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA0000190000000000000001 /* VoiceStreamSDK */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = VoiceStreamSDK; path = ../VoiceStreamSDK; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -25,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA0000170000000000000001 /* VoiceStreamSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -36,6 +39,7 @@
 			children = (
 				AA000000B000000000000001 /* DemoApp */,
 				AA000000C000000000000001 /* Products */,
+				AA00001A0000000000000001 /* Packages */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +62,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		AA00001A0000000000000001 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				AA0000190000000000000001 /* VoiceStreamSDK */,
+			);
+			name = Packages;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -75,6 +87,7 @@
 			);
 			name = DemoApp;
 			packageProductDependencies = (
+				AA0000180000000000000001 /* VoiceStreamSDK */,
 			);
 			productName = DemoApp;
 			productReference = AA0000070000000000000001 /* DemoApp.app */;
@@ -338,6 +351,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AA0000180000000000000001 /* VoiceStreamSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = VoiceStreamSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AA0000110000000000000001 /* Project object */;
 }
