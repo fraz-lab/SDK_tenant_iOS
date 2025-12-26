@@ -711,31 +711,4 @@ File → Packages → Reset Package Caches
 5. **Use weak self:** In closures to avoid retain cycles
 6. **Test network conditions:** Handle reconnections gracefully
 
-## License
 
-[Your License Here]
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## Support
-
-- **Issues:** [GitHub Issues](https://github.com/yourusername/VoiceStreamSDK-iOS/issues)
-- **Documentation:** Check the guides in this repository
-- **Email:** support@smartserve.ai
-
-## Changelog
-
-### Version 1.0.0
-- Initial release
-- Bidirectional audio streaming (16kHz capture, 24kHz playback)
-- WebSocket connection with auto-reconnection
-- Comprehensive error handling
-- SwiftUI and UIKit support
-- Demo application with metrics
-- Complete documentation
-
----
-
-**Made with ❤️ for iOS developers**
