@@ -269,12 +269,3 @@ The `VoiceStreamConfig` struct supports the following parameters:
 - Update Swift packages: **File → Packages → Update to Latest Package Versions**
 - Reset package caches: **File → Packages → Reset Package Caches**
 
-## Support
-
-- **Issues:** [GitHub Issues](https://github.com/yourusername/VoiceStreamSDK-iOS/issues)
-- **Email:** support@smartserve.ai
-- **Documentation:** See the README.md in this repository
-
----
-
-That's it! You're ready to use VoiceStreamSDK in your iOS app.
