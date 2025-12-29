@@ -54,11 +54,20 @@ internal class WebSocketManager: NSObject {
         stopPingTimer()
         stopReconnectTimer()
 
+        let wasConnected = connectionState == .connected
         connectionState = .disconnected
         socket?.disconnect()
         socket = nil
 
         log("Disconnected from WebSocket")
+        
+        // Manually trigger callback if we were connected, to ensure UI updates
+        if wasConnected {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                self.callback?.onDisconnected(reason: "Manual disconnect")
+            }
+        }
     }
 
     /// Send text message to server
